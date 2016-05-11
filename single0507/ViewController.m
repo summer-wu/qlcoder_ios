@@ -9,6 +9,11 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *iv;
+@property (weak, nonatomic) IBOutlet UIButton *redBtn;
+@property (weak, nonatomic) IBOutlet UIButton *greenBtn;
+@property (weak, nonatomic) IBOutlet UIButton *blueBtn;
+@property (weak, nonatomic) IBOutlet UIButton *btn0;
 
 @end
 

@@ -13,6 +13,7 @@ typedef struct RGBAPixel {
     char blue;
     char alpha;
 } RGBAPixel;
+extern RGBAPixel const RGBAPixelWhite;
 
 typedef NS_ENUM(NSUInteger, JUNChannel) {
     JUNChannelRed,

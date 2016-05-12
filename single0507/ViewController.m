@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *greenBtn;
 @property (weak, nonatomic) IBOutlet UIButton *blueBtn;
 @property (weak, nonatomic) IBOutlet UIButton *btn0;
+@property (weak, nonatomic) IBOutlet UIButton *originalBtn;
 @end
 
 @implementation ViewController
@@ -28,6 +29,7 @@
     [_greenBtn addTarget:self action:@selector(greenButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [_blueBtn addTarget:self action:@selector(blueButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [_btn0 addTarget:self action:@selector(btn0Click:) forControlEvents:UIControlEventTouchUpInside];
+    [_originalBtn addTarget:self action:@selector(orgDidClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)redButtonDidClick:(id)sender{
@@ -54,8 +56,13 @@
     self.iv.image = i;
 }
 
+- (void)orgDidClick:(id)sender{
+    UIImage *i = [self originalImage];
+    self.iv.image = i;
+}
+
 - (UIImage *)originalImage{
-    UIImage *i = [UIImage imageNamed:@"lenna"];
+    UIImage *i = [UIImage imageNamed:@"tree"];//tmall.jpg lenna
     return i;
 }
 

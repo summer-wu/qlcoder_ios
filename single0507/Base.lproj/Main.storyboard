@@ -40,6 +40,10 @@
                                 <rect key="frame" x="35" y="408" width="32" height="30"/>
                                 <state key="normal" title="btn0"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jV-2t-VUQ">
+                                <rect key="frame" x="108" y="412" width="51" height="30"/>
+                                <state key="normal" title="original"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -54,6 +58,7 @@
                         <outlet property="btn0" destination="6ah-D9-Jn5" id="QHO-5H-su1"/>
                         <outlet property="greenBtn" destination="hQK-mk-jRb" id="LAp-rb-BGO"/>
                         <outlet property="iv" destination="2BD-ii-Xoe" id="LJQ-V8-hIf"/>
+                        <outlet property="originalBtn" destination="8jV-2t-VUQ" id="4mq-zt-7Yz"/>
                         <outlet property="redBtn" destination="ytA-uU-POI" id="6iZ-Oi-IZ4"/>
                     </connections>
                 </viewController>

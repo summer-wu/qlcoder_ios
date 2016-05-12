@@ -8,6 +8,8 @@
 
 #import "UIImage+PixelData.h"
 static const char kEmptyValue = 0;
+const RGBAPixel RGBAPixelWhite = {255,255,255,255};
+
 
 @implementation UIImage (PixelData)
 - (UIImage *)imageWithPixelProcessingBlock:(RGBAPixel(^)(RGBAPixel pixel))block{
@@ -74,7 +76,22 @@ static const char kEmptyValue = 0;
 }
 
 - (UIImage *)imageWithOnlyOneChannel:(JUNChannel)channel{
+// 这个方法中的注释都是为了打印log，用这种方式可以打印一个ASCII的图片
+//    size_t width = CGImageGetWidth(self.CGImage);
+//    NSInteger __block index = 0;
     UIImage *resultImage = [self imageWithPixelProcessingBlock:^RGBAPixel(RGBAPixel pixel) {
+//        if (index % width == 0) {
+//            printf("\n");
+//        }
+//        BOOL redLowestBitIs1 = (pixel.red & 1);
+//        BOOL greenLowestBitIs1 = (pixel.green & 1);
+//        BOOL blueLowestBitIs1 = (pixel.blue & 1);
+//        if (redLowestBitIs1/* || greenLowestBitIs1 || blueLowestBitIs1*/) {
+//            printf("*");
+//        } else {
+//            printf(" ");
+//        }
+
         switch (channel) {
             case JUNChannelRed:
                 pixel.green = pixel.blue = kEmptyValue;
@@ -88,6 +105,7 @@ static const char kEmptyValue = 0;
             default:
                 break;
         }
+//        index += 1;
         return pixel;
     }];
     return resultImage;
@@ -95,13 +113,14 @@ static const char kEmptyValue = 0;
 
 - (UIImage *)imageToExtractChannelSecret{
     UIImage *resultImage = [self imageWithPixelProcessingBlock:^RGBAPixel(RGBAPixel pixel) {
-        if (pixel.blue&1) {
-            pixel.blue = 255;
-        } else {
-            pixel.blue = 0;
-        }
-        pixel.green = kEmptyValue;
-        pixel.red = kEmptyValue;
+        BOOL redLowestBitIs1 = (pixel.red & 1);
+        BOOL greenLowestBitIs1 = (pixel.green & 1);
+        BOOL blueLowestBitIs1 = (pixel.blue & 1);
+
+        char bitsToMove = 7;//只查看后面1位
+        pixel.red <<= bitsToMove;
+        pixel.green <<= bitsToMove;
+        pixel.blue <<= bitsToMove;
         return pixel;
     }];
     return resultImage;

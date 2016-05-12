@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+PixelData.h"
+static const char kEmptyValue = 0;
 
 @implementation UIImage (PixelData)
 - (UIImage *)imageWithPixelProcessingBlock:(RGBAPixel(^)(RGBAPixel pixel))block{
@@ -70,6 +71,40 @@
     CGImageRelease(newImageRef);
     return newImage;
 
+}
+
+- (UIImage *)imageWithOnlyOneChannel:(JUNChannel)channel{
+    UIImage *resultImage = [self imageWithPixelProcessingBlock:^RGBAPixel(RGBAPixel pixel) {
+        switch (channel) {
+            case JUNChannelRed:
+                pixel.green = pixel.blue = kEmptyValue;
+                break;
+            case JUNChannelGreen:
+                pixel.red = pixel.blue = kEmptyValue;
+                break;
+            case JUNChannelBlue:
+                pixel.red = pixel.green = kEmptyValue;
+                break;
+            default:
+                break;
+        }
+        return pixel;
+    }];
+    return resultImage;
+}
+
+- (UIImage *)imageToExtractChannelSecret{
+    UIImage *resultImage = [self imageWithPixelProcessingBlock:^RGBAPixel(RGBAPixel pixel) {
+        if (pixel.blue&1) {
+            pixel.blue = 255;
+        } else {
+            pixel.blue = 0;
+        }
+        pixel.green = kEmptyValue;
+        pixel.red = kEmptyValue;
+        return pixel;
+    }];
+    return resultImage;
 }
 
 

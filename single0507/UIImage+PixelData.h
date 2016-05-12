@@ -14,7 +14,17 @@ typedef struct RGBAPixel {
     char alpha;
 } RGBAPixel;
 
+typedef NS_ENUM(NSUInteger, JUNChannel) {
+    JUNChannelRed,
+    JUNChannelGreen,
+    JUNChannelBlue,
+};
+
 typedef RGBAPixel(^PixelProcessingBlock)(RGBAPixel pixel);
 @interface UIImage (PixelData)
+
+/// 每次调用这个方法都会创建一个新的图片
 - (UIImage *)imageWithPixelProcessingBlock:(RGBAPixel(^)(RGBAPixel pixel))block;
+- (UIImage *)imageWithOnlyOneChannel:(JUNChannel)channel;
+- (UIImage *)imageToExtractChannelSecret;
 @end

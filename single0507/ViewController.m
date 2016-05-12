@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JUNImageHelper.h"
+#import "UIImage+PixelData.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iv;
@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *greenBtn;
 @property (weak, nonatomic) IBOutlet UIButton *blueBtn;
 @property (weak, nonatomic) IBOutlet UIButton *btn0;
-@property (weak, readonly) JUNImageHelper *helper;
 @end
 
 @implementation ViewController
@@ -26,10 +25,32 @@
     self.iv.image = [self originalImage];
     self.iv.contentMode = UIViewContentModeScaleAspectFit;
     [_redBtn addTarget:self action:@selector(redButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_greenBtn addTarget:self action:@selector(greenButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_blueBtn addTarget:self action:@selector(blueButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_btn0 addTarget:self action:@selector(btn0Click:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)redButtonDidClick:(id)sender{
-    UIImage *i = [self.helper onlyRedChannelFromImage: [self originalImage]];
+    UIImage *i = [self originalImage];
+    i = [i imageWithOnlyOneChannel: JUNChannelRed];
+    self.iv.image = i;
+}
+
+- (void)greenButtonDidClick:(id)sender{
+    UIImage *i = [self originalImage];
+    i = [i imageWithOnlyOneChannel: JUNChannelGreen];
+    self.iv.image = i;
+}
+
+- (void)blueButtonDidClick:(id)sender{
+    UIImage *i = [self originalImage];
+    i = [i imageWithOnlyOneChannel: JUNChannelBlue];
+    self.iv.image = i;
+}
+
+- (void)btn0Click:(id)sender{
+    UIImage *i = [self originalImage];
+    i = [i imageToExtractChannelSecret];
     self.iv.image = i;
 }
 
@@ -39,8 +60,5 @@
 }
 
 #pragma mark - getter
-- (JUNImageHelper *)helper{
-    return [JUNImageHelper sharedInstance];
-}
 
 @end

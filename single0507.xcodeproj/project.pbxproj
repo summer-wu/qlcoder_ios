@@ -13,6 +13,7 @@
 		0DD44FBB1CDD8FDD0015BF52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD44FB91CDD8FDD0015BF52 /* Main.storyboard */; };
 		0DD44FBD1CDD8FDD0015BF52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD44FBC1CDD8FDD0015BF52 /* Assets.xcassets */; };
 		0DD44FC01CDD8FDD0015BF52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD44FBE1CDD8FDD0015BF52 /* LaunchScreen.storyboard */; };
+		0DF6D5DB1CE46680003BAD36 /* UIImage+PixelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6D5DA1CE46680003BAD36 /* UIImage+PixelData.m */; };
 		0DFB0F631CE36F850026AED0 /* lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFB0F621CE36F850026AED0 /* lenna.png */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		0DD44FBC1CDD8FDD0015BF52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD44FBF1CDD8FDD0015BF52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD44FC11CDD8FDD0015BF52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF6D5D91CE46680003BAD36 /* UIImage+PixelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PixelData.h"; sourceTree = "<group>"; };
+		0DF6D5DA1CE46680003BAD36 /* UIImage+PixelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PixelData.m"; sourceTree = "<group>"; };
 		0DFB0F621CE36F850026AED0 /* lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lenna.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +73,8 @@
 				0DD44FBE1CDD8FDD0015BF52 /* LaunchScreen.storyboard */,
 				0DD44FC11CDD8FDD0015BF52 /* Info.plist */,
 				0DD44FB01CDD8FDD0015BF52 /* Supporting Files */,
+				0DF6D5D91CE46680003BAD36 /* UIImage+PixelData.h */,
+				0DF6D5DA1CE46680003BAD36 /* UIImage+PixelData.m */,
 			);
 			path = single0507;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF6D5DB1CE46680003BAD36 /* UIImage+PixelData.m in Sources */,
 				0DD44FB81CDD8FDD0015BF52 /* ViewController.m in Sources */,
 				0DD44FB51CDD8FDD0015BF52 /* AppDelegate.m in Sources */,
 				0DD44FB21CDD8FDD0015BF52 /* main.m in Sources */,

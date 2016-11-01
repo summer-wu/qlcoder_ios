@@ -15,6 +15,7 @@ typedef struct RGBAPixel {
 } RGBAPixel;
 extern RGBAPixel const RGBAPixelWhite;
 
+// JUN是为了防止命名冲突（JUNE的简写）
 typedef NS_ENUM(NSUInteger, JUNChannel) {
     JUNChannelRed,
     JUNChannelGreen,
@@ -29,7 +30,7 @@ typedef RGBAPixel(^PixelProcessingBlock)(RGBAPixel pixel);
 - (UIImage *)imageWithOnlyOneChannel:(JUNChannel)channel;
 - (UIImage *)imageToExtractChannelSecret;
 
-
-+(UIImage *)imageOfCircle;
+// 题目(可视化-1 )要求绘制很多个圆，这些圆会组成一个答案
++ (UIImage *)imageOfCircle;
 + (UIImage *)imageOfCircleWithPixelCount:(NSUInteger)count;
 @end

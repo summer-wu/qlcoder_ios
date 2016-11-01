@@ -1,3 +1,7 @@
 #说明
-千里码（http://www.qlcoder.com/home）。这个网站上有很多题。
+
+千里码（http://www.qlcoder.com/home）。
+
+这个网站上有很多题。
+
 取颜色分量的题必须通过写代码实现，这个项目主要是对图片的操作。

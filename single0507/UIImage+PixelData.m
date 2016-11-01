@@ -126,5 +126,72 @@ const RGBAPixel RGBAPixelWhite = {255,255,255,255};
     return resultImage;
 }
 
++ (UIImage *)imageOfCircleWithPixelCount:(NSUInteger)count{
+    CGSize size = CGSizeMake(1000, 1000);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 1.0);
 
+    //设置颜色
+    [[UIColor redColor] set];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //绘制
+    NSArray *points = [self pointsArray];
+    NSInteger countPassed = 0;
+    for (NSValue *value in points) {
+        CGPoint p = [value CGPointValue];
+        CGFloat radius = 2.5;
+        CGRect rect = CGRectMake(p.x-radius, p.y-radius, radius*2, radius*2);
+        CGContextAddEllipseInRect(context, rect);
+        CGContextFillPath(context);
+        countPassed += 1;
+        if (countPassed>count) {
+            break;
+        }
+    }
+
+    //获取
+    UIImage *i = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return i;
+}
+
++(UIImage *)imageOfCircle{
+    CGSize size = CGSizeMake(1000, 1000);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 1.0);
+
+    //设置颜色
+    [[UIColor redColor] set];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //绘制
+    NSArray *points = [self pointsArray];
+    for (NSValue *value in points) {
+        CGPoint p = [value CGPointValue];
+        CGFloat radius = 2.5;
+        CGRect rect = CGRectMake(p.x-radius, p.y-radius, radius*2, radius*2);
+        CGContextAddEllipseInRect(context, rect);
+        CGContextFillPath(context);
+    }
+
+    //获取
+    UIImage *i = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return i;
+}
+
++ (NSArray *)pointsArray{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"145035182953188" ofType:@"txt"];
+    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *ma = [NSMutableArray array];
+    [fileContent enumerateLinesUsingBlock:^(NSString * _Nonnull line, BOOL * _Nonnull stop) {
+        NSArray <NSString *>*components = [line componentsSeparatedByString:@" "];
+        if (components.count>=2) {
+            NSInteger x = [components[0] integerValue];
+            NSInteger y = [components[1] integerValue];
+            CGPoint p = CGPointMake(x, y);
+            [ma addObject:[NSValue valueWithCGPoint:p]];
+        }
+    }];
+    return ma;
+}
 @end

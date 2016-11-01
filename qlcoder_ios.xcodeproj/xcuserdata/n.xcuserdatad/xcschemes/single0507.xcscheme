@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0DD44FAC1CDD8FDD0015BF52"
-               BuildableName = "single0507.app"
-               BlueprintName = "single0507"
-               ReferencedContainer = "container:single0507.xcodeproj">
+               BuildableName = "qlcoder_ios.app"
+               BlueprintName = "qlcoder_ios"
+               ReferencedContainer = "container:qlcoder_ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0DD44FAC1CDD8FDD0015BF52"
-            BuildableName = "single0507.app"
-            BlueprintName = "single0507"
-            ReferencedContainer = "container:single0507.xcodeproj">
+            BuildableName = "qlcoder_ios.app"
+            BlueprintName = "qlcoder_ios"
+            ReferencedContainer = "container:qlcoder_ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0DD44FAC1CDD8FDD0015BF52"
-            BuildableName = "single0507.app"
-            BlueprintName = "single0507"
-            ReferencedContainer = "container:single0507.xcodeproj">
+            BuildableName = "qlcoder_ios.app"
+            BlueprintName = "qlcoder_ios"
+            ReferencedContainer = "container:qlcoder_ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0DD44FAC1CDD8FDD0015BF52"
-            BuildableName = "single0507.app"
-            BlueprintName = "single0507"
-            ReferencedContainer = "container:single0507.xcodeproj">
+            BuildableName = "qlcoder_ios.app"
+            BlueprintName = "qlcoder_ios"
+            ReferencedContainer = "container:qlcoder_ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

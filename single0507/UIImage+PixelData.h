@@ -28,4 +28,8 @@ typedef RGBAPixel(^PixelProcessingBlock)(RGBAPixel pixel);
 - (UIImage *)imageWithPixelProcessingBlock:(RGBAPixel(^)(RGBAPixel pixel))block;
 - (UIImage *)imageWithOnlyOneChannel:(JUNChannel)channel;
 - (UIImage *)imageToExtractChannelSecret;
+
+
++(UIImage *)imageOfCircle;
++ (UIImage *)imageOfCircleWithPixelCount:(NSUInteger)count;
 @end
